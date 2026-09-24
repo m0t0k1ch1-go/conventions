@@ -5,12 +5,13 @@ m0t0k1ch1-go 配下の Go リポジトリで共有する規約と設定。
 ## 構成
 
 - `template/`：各 Go リポジトリへ配布するファイル。消費側リポジトリのルートの鏡。
+  - `.husky/commit-msg`：commitlint を実行する commit-msg hook。
   - `CONVENTIONS.md`：コーディング規約。
-  - `staticcheck.conf`：staticcheck の設定。
+  - `commitlint.config.ts`：commitlint の設定。
   - `conventions.mk`：共有する make ターゲット。
   - `package.json`：開発に使う npm パッケージの定義。
   - `pnpm-lock.yaml`：`package.json` のロックファイル。
-  - `.husky/commit-msg`, `commitlint.config.ts`：Conventional Commits を強制する commit-msg hook とその設定。
+  - `staticcheck.conf`：staticcheck の設定。
 - その他：このリポジトリ自身の開発用設定。
 
 ## 使い方
