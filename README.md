@@ -1,6 +1,6 @@
 # Conventions in m0t0k1ch1-go
 
-m0t0k1ch1-go 配下の Go リポジトリで共有する規約。
+m0t0k1ch1-go 配下の Go リポジトリで共有する規約と設定。
 
 ## 構成
 
