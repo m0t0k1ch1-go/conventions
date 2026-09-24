@@ -21,6 +21,4 @@ m0t0k1ch1-go 配下の Go リポジトリで共有する規約と設定。
 - `CLAUDE.md`（または `AGENTS.md`）から `@CONVENTIONS.md` を参照し、リポジトリ固有の記述を続ける。
 - `Makefile` に `include conventions.mk` を書き、リポジトリ固有のターゲットを続ける。`conventions.mk` にあるターゲット名は再定義しない。`lint` と `test` は必ず定義する。
 
-同期の仕組みは今後追加する。
-
-`template/` の `package.json`・`pnpm-lock.yaml`・`.husky/commit-msg`・`commitlint.config.ts` は、このリポジトリのルートにある同名ファイルへの symlink。同期時は symlink を実体化してコピーする。
+`template/` の `.husky/commit-msg`・`commitlint.config.ts`・`package.json`・`pnpm-lock.yaml` は、このリポジトリのルートにある同名ファイルへの symlink。同期時は symlink を実体化してコピーする。
