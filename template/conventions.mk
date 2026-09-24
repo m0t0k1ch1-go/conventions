@@ -8,4 +8,3 @@ deps/node:
 .PHONY: commit
 commit:
 	pnpm czg
-
