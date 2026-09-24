@@ -21,7 +21,7 @@ m0t0k1ch1-go 配下の Go リポジトリに共通するコーディング規約
 ## 前提
 
 - 変更後は `make lint` と `make test` を必ず通す。
-- テストコード、`staticcheck.conf`、`Makefile`、CI 設定を変更・削除・スキップして通してはならない。これらは人間が管理する。
+- テストコード、`staticcheck.conf`、`Makefile`、`conventions.mk`、CI 設定を変更・削除・スキップして通してはならない。これらは人間が管理する。
 
 ## 規則
 
