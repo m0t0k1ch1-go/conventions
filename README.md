@@ -1,15 +1,14 @@
 # Conventions of m0t0k1ch1-go
 
-Shared conventions for the Go repositories under `m0t0k1ch1-go`.
+`m0t0k1ch1-go` 配下の Go リポジトリで共有する規約。
 
-## Layout
+## 構成
 
-- `template/` — files distributed to every Go repository. The directory mirrors a consumer repository's root: copying `template/` onto a repository's root brings it up to date, and `diff -r` against it shows drift. Only files whose dependencies are self-contained in this repository are included.
-  - `CONVENTIONS.md` — coding conventions for humans and coding agents: three prioritized principles (Stay Consistent > Fail Fast > Keep Minimal), the `make lint` / `make test` prerequisite, and per-principle rules.
-  - `staticcheck.conf` — shared staticcheck configuration.
-  - `.husky/commit-msg`, `commitlint.config.ts`, `package.json`, `pnpm-lock.yaml` — shared commit-message tooling (husky + commitlint + czg).
-- Everything else at the root is this repository's own development setup.
+- `template/` — 各 Go リポジトリへ配布するファイル。消費側リポジトリのルートの鏡になっており、`template/` をルートにコピーすれば最新になり、`diff -r` で差分（ドリフト）が分かる。
+  - `CONVENTIONS.md` — 人とコーディングエージェントのためのコーディング規約。優先順位付きの三大指針（Stay Consistent > Fail Fast > Keep Minimal）、`make lint` / `make test` を通すという前提、指針ごとの規則からなる。
+  - `staticcheck.conf` — 共有の staticcheck 設定。
+- ルート直下のその他のファイルは、このリポジトリ自身の開発用設定。
 
-## Usage
+## 使い方
 
-In a consumer repository, keep `CONVENTIONS.md` at the root and reference it from `CLAUDE.md` (or `AGENTS.md`) with an import line such as `@CONVENTIONS.md`, followed by repository-specific notes. Synchronization tooling will be added later.
+消費側リポジトリでは `CONVENTIONS.md` をルートに置き、`CLAUDE.md`（または `AGENTS.md`）から `@CONVENTIONS.md` のように参照したうえで、リポジトリ固有の記述を続ける。同期の仕組みは今後追加する。
