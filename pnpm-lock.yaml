@@ -172,9 +172,6 @@ importers:
       '@commitlint/config-conventional':
         specifier: 21.2.3
         version: 21.2.3
-      '@commitlint/types':
-        specifier: 21.2.3
-        version: 21.2.3
       czg:
         specifier: 1.14.0
         version: 1.14.0
