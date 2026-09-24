@@ -16,6 +16,6 @@ m0t0k1ch1-go 配下の Go リポジトリで共有する規約と設定。
 
 消費側リポジトリでは `template/` の内容をルートにコピーし、`CLAUDE.md`（または `AGENTS.md`）から `@CONVENTIONS.md` で参照したうえで、リポジトリ固有の記述を続ける。同期の仕組みは今後追加する。
 
-消費側リポジトリの Makefile は `include conventions.mk` の 1 行と、そのリポジトリ固有のターゲットだけを書く。`conventions.mk` にあるターゲット名は再定義しない。`lint` と `test` はリポジトリごとに定義する。未定義のまま実行すると `conventions.mk` がエラーで止める。
+消費側リポジトリの Makefile は `include conventions.mk` の 1 行と、そのリポジトリ固有のターゲットだけを書く。`conventions.mk` にあるターゲット名は再定義しない。`lint` と `test` はリポジトリごとに定義する。
 
-このリポジトリ自身も template の消費者で、ルートの `package.json`・`pnpm-lock.yaml`・`.husky/commit-msg`・`commitlint.config.ts` は template のコピー。
+このリポジトリ自身も template の消費者で、`template/` の `package.json`・`pnpm-lock.yaml`・`.husky/commit-msg`・`commitlint.config.ts` はルートの実体ファイルへの symlink。同期時は symlink を実体化してコピーする。
