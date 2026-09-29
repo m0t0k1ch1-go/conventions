@@ -23,6 +23,8 @@ m0t0k1ch1-go 配下の Go リポジトリで共有する規約と設定。
 
 `template/` の `.husky/commit-msg`・`commitlint.config.ts`・`package.json`・`pnpm-lock.yaml` は、このリポジトリのルートにある同名ファイルへの symlink。同期時は symlink を実体化してコピーする。
 
-## 規則の番号
+## 保守
 
-`CONVENTIONS.md` の規則には、指針ごとの接頭辞付きの番号を振る（Stay Consistent は `SC-1`、Fail Fast は `FF-1`、Keep Minimal は `KM-1` のように）。一度振った番号は変えず、規則を削除したときはその番号を欠番にする。
+このリポジトリを更新するときの決まり。
+
+- `CONVENTIONS.md` の規則には、指針ごとの接頭辞付きの番号を振る（Stay Consistent は `SC-1`、Fail Fast は `FF-1`、Keep Minimal は `KM-1` のように）。一度振った番号は変えず、規則を削除したときはその番号を欠番にする。
