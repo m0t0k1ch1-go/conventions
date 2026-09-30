@@ -5,7 +5,6 @@ m0t0k1ch1-go 配下の Go リポジトリで共有する規約と設定。
 ## 構成
 
 - `template/`：各 Go リポジトリへ配布するファイル。消費側リポジトリのルートの鏡。
-  - `.github/workflows/check-conventions.yaml`：`template/` との差分を検知するワークフロー。
   - `.husky/commit-msg`：commitlint を実行する `commit-msg` フック。
   - `CONVENTIONS.md`：コーディング規約。
   - `commitlint.config.ts`：commitlint の設定。
@@ -24,7 +23,7 @@ m0t0k1ch1-go 配下の Go リポジトリで共有する規約と設定。
 
 ## 同期
 
-消費側リポジトリの `check-conventions` ワークフローは、`template/` の各ファイルとルートの同名ファイルを比較し、差分があれば失敗する。差分をなくすためには、各消費側リポジトリごとに次の手順で同期を行う。
+`template/` を更新したら、各消費側リポジトリごとに次の手順で同期を行う。
 
 1. このリポジトリの main ブランチをクローンする（例：`git clone --depth 1 https://github.com/m0t0k1ch1-go/conventions /tmp/conventions`）。
 2. 消費側リポジトリのルートで `cp -RL /tmp/conventions/template/. .` を実行する（シンボリックリンクは実体化される）。
