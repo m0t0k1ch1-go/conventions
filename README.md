@@ -24,9 +24,9 @@ m0t0k1ch1-go 配下の Go リポジトリで共有する規約と設定。
 
 ## 同期
 
-消費側リポジトリの `check-conventions` workflow は、`template/` の各ファイルとルートの同名ファイルを比較し、差分があれば失敗する。失敗したら、または `template/` を更新したら、消費側リポジトリごとに次の手順で同期する。
+消費側リポジトリの `check-conventions` workflow は、`template/` の各ファイルとルートの同名ファイルを比較し、差分があれば失敗する。差分をなくすためには、各消費側リポジトリごとに次の手順で同期を行う。
 
-1. このリポジトリの main を clone する（例：`git clone --depth 1 https://github.com/m0t0k1ch1-go/conventions /tmp/conventions`）。
+1. このリポジトリの main ブランチを clone する（例：`git clone --depth 1 https://github.com/m0t0k1ch1-go/conventions /tmp/conventions`）。
 2. 消費側リポジトリのルートで `cp -RL /tmp/conventions/template/. .` を実行する（symlink は実体化される）。
 3. `git status` で、変更されたファイルが `template/` にあるものだけであることを確認する。
 4. `chore: sync conventions` のようなコミットを作り、pull request を出す。
