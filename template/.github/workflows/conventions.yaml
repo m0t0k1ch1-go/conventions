@@ -1,0 +1,35 @@
+name: conventions
+on:
+  push:
+    branches:
+      - "**"
+  schedule:
+    - cron: "17 0 * * 1"
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Checkout conventions
+        uses: actions/checkout@v7
+        with:
+          repository: m0t0k1ch1-go/conventions
+          path: .conventions
+      - name: Check drift
+        run: |
+          set -eu
+          drifted=0
+          for rel in $(cd .conventions/template && find . \( -type f -o -type l \) | sort | sed 's|^\./||'); do
+            if [ ! -e "$GITHUB_WORKSPACE/$rel" ]; then
+              echo "::error::$rel is missing; template/$rel exists in m0t0k1ch1-go/conventions"
+              drifted=1
+            elif ! cmp -s ".conventions/template/$rel" "$GITHUB_WORKSPACE/$rel"; then
+              echo "::error file=$rel::$rel differs from template/$rel in m0t0k1ch1-go/conventions"
+              drifted=1
+            fi
+          done
+          if [ "$drifted" -ne 0 ]; then
+            echo "m0t0k1ch1-go/conventions の README の同期の手順に従って同期してください。"
+            exit 1
+          fi
