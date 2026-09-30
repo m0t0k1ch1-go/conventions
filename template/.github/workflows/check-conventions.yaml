@@ -1,4 +1,4 @@
-name: conventions
+name: check-conventions
 on:
   push:
     branches:

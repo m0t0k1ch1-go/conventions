@@ -5,7 +5,7 @@ m0t0k1ch1-go 配下の Go リポジトリで共有する規約と設定。
 ## 構成
 
 - `template/`：各 Go リポジトリへ配布するファイル。消費側リポジトリのルートの鏡。
-  - `.github/workflows/conventions.yaml`：`template/` との差分を検知する workflow。
+  - `.github/workflows/check-conventions.yaml`：`template/` との差分を検知する workflow。
   - `.husky/commit-msg`：commitlint を実行する commit-msg hook。
   - `CONVENTIONS.md`：コーディング規約。
   - `commitlint.config.ts`：commitlint の設定。
@@ -24,14 +24,12 @@ m0t0k1ch1-go 配下の Go リポジトリで共有する規約と設定。
 
 ## 同期
 
-消費側リポジトリの `conventions` workflow は、`template/` の各ファイルとルートの同名ファイルを比較し、差分があれば失敗する。失敗したら、または `template/` を更新したら、消費側リポジトリごとに次の手順で同期する。
+消費側リポジトリの `check-conventions` workflow は、`template/` の各ファイルとルートの同名ファイルを比較し、差分があれば失敗する。失敗したら、または `template/` を更新したら、消費側リポジトリごとに次の手順で同期する。
 
 1. このリポジトリの main を clone する（例：`git clone --depth 1 https://github.com/m0t0k1ch1-go/conventions /tmp/conventions`）。
 2. 消費側リポジトリのルートで `cp -RL /tmp/conventions/template/. .` を実行する（symlink は実体化される）。
 3. `git status` で、変更されたファイルが `template/` にあるものだけであることを確認する。
 4. `chore: sync conventions` のようなコミットを作り、pull request を出す。
-
-`template/` の `.husky/commit-msg`・`commitlint.config.ts`・`package.json`・`pnpm-lock.yaml` は、このリポジトリのルートにある同名ファイルへの symlink。手順 2 の `-L` がこれを実体化する。
 
 ## 保守
 
