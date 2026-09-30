@@ -5,8 +5,8 @@ m0t0k1ch1-go 配下の Go リポジトリで共有する規約と設定。
 ## 構成
 
 - `template/`：各 Go リポジトリへ配布するファイル。消費側リポジトリのルートの鏡。
-  - `.github/workflows/check-conventions.yaml`：`template/` との差分を検知する workflow。
-  - `.husky/commit-msg`：commitlint を実行する commit-msg hook。
+  - `.github/workflows/check-conventions.yaml`：`template/` との差分を検知するワークフロー。
+  - `.husky/commit-msg`：commitlint を実行する `commit-msg` フック。
   - `CONVENTIONS.md`：コーディング規約。
   - `commitlint.config.ts`：commitlint の設定。
   - `conventions.mk`：共有する make ターゲット。
@@ -24,15 +24,16 @@ m0t0k1ch1-go 配下の Go リポジトリで共有する規約と設定。
 
 ## 同期
 
-消費側リポジトリの `check-conventions` workflow は、`template/` の各ファイルとルートの同名ファイルを比較し、差分があれば失敗する。差分をなくすためには、各消費側リポジトリごとに次の手順で同期を行う。
+消費側リポジトリの `check-conventions` ワークフローは、`template/` の各ファイルとルートの同名ファイルを比較し、差分があれば失敗する。差分をなくすためには、各消費側リポジトリごとに次の手順で同期を行う。
 
-1. このリポジトリの main ブランチを clone する（例：`git clone --depth 1 https://github.com/m0t0k1ch1-go/conventions /tmp/conventions`）。
-2. 消費側リポジトリのルートで `cp -RL /tmp/conventions/template/. .` を実行する（symlink は実体化される）。
+1. このリポジトリの main ブランチをクローンする（例：`git clone --depth 1 https://github.com/m0t0k1ch1-go/conventions /tmp/conventions`）。
+2. 消費側リポジトリのルートで `cp -RL /tmp/conventions/template/. .` を実行する（シンボリックリンクは実体化される）。
 3. `git status` で、変更されたファイルが `template/` にあるものだけであることを確認する。
-4. `chore: sync conventions` のようなコミットを作り、pull request を出す。
+4. `chore: sync conventions` のようなコミットを作り、PR を出す。
 
 ## 保守
 
 このリポジトリを更新するときの決まり。
 
 - `CONVENTIONS.md` の規則には、指針ごとの接頭辞付きの番号を振る（Stay Consistent は `SC-1`、Fail Fast は `FF-1`、Keep Minimal は `KM-1` のように）。一度振った番号は変えず、規則を削除したときはその番号を欠番にする。
+- 文中の用語はカタカナで書く。英語のまま書くのは、固有名詞（Go、godoc、staticcheck、GitHub など）、略語（API、CI、PR など）、コードや識別子（バッククォートで囲む）、訳語もカタカナ表記も定着していない専門用語（例：sentinel）に限る。略語が定着している用語は略語を使う（pull request ではなく PR）。
