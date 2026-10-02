@@ -21,7 +21,9 @@ m0t0k1ch1-go 配下の Go リポジトリに共通するコーディング規約
 ## 前提
 
 - 変更後は `make lint` と `make test` を必ず通す。
-- テストコード、`staticcheck.conf`、`Makefile`、`conventions.mk`、CI 設定を変更・削除・スキップして通してはならない。これらは人間が管理する。
+  - 通すためにチェック側を緩めてはならない。失敗するテストの削除・スキップ・期待値の書き換えや、`staticcheck.conf`、`Makefile`、`conventions.mk`、CI 設定の変更で失敗を回避することを指す。
+  - 実装の変更に伴うテストの追加・更新は通常の作業として行ってよい。
+- `staticcheck.conf`、`Makefile`、`conventions.mk`、CI 設定は人間が管理する。変更が必要なら提案に留める。
 
 ## 規則
 
