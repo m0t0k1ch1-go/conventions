@@ -16,14 +16,14 @@ m0t0k1ch1-go 配下の Go リポジトリで共有する規約と設定。
 
 ## 使い方
 
-消費側リポジトリでは、**同期** の項の手順で `template/` の内容を取り込み、初回は加えて次を行う。
+消費側リポジトリでは、**同期** の項の手順で `template/` の内容を取り込み、初回は加えて以下を行う。
 
 - `CLAUDE.md`（または `AGENTS.md`）から `@CONVENTIONS.md` を参照し、リポジトリ固有の記述を続ける。
 - `Makefile` に `include conventions.mk` を書き、リポジトリ固有のターゲットを続ける。`conventions.mk` にあるターゲット名は再定義しない。`lint` と `test` は必ず定義する。
 
 ## 同期
 
-`template/` を更新したら、各消費側リポジトリごとに次の手順で同期を行う。
+`template/` を更新したら、各消費側リポジトリごとに以下の手順で同期を行う。
 
 1. 本リポジトリの main ブランチをクローンする（例：`git clone --depth 1 https://github.com/m0t0k1ch1-go/conventions /tmp/conventions`）。
 2. 消費側リポジトリのルートで `cp -RL /tmp/conventions/template/. .` を実行する（シンボリックリンクは実体化される）。
